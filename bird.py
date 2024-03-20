@@ -59,7 +59,14 @@ class Bird:
         return not 0 < self.rect.y < WINDOW_HEIGHT  # Out of bounds
     def learn(self):
     # Adjust the weights of the neural network model (mutation)
-        print(self.neural_network.weights[2][0])
+        for layer_weights in self.neural_network.weights:
+            for weight in layer_weights[0]:
+                # Add a random value between -0.1 and 0.1 to the weight
+                weight += np.random.uniform(-0.1, 0.1)
+                # Clip the weight to ensure it remains within the range [-1, 1]
+                weight = max(-1,min(weight, 1))
+        # print(self.neural_network.weights[1] )
+        # print(self.neural_network.weights[2][0])
         # for layer in self.neural_network.layers:
         #     if hasattr(layer, 'weights'):
         #         weights = layer.weights
