@@ -1,3 +1,4 @@
+from tensorflow import keras
 # Set up the game window
 WINDOW_WIDTH = 400
 WINDOW_HEIGHT = 600
@@ -11,3 +12,8 @@ YELLOW = (255, 255, 0)
 CYAN = (0, 255, 255)
 MAGENTA = (255, 0, 255)
 GRAY = (128, 128, 128)
+
+MIN_PIPE_DIST = 150 # Minimum distance between two pipes
+PIPE_GAP = 200
+
+DEFAULT_MODEL = keras.models.load_model("nn.h5")
